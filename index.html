@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom select</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="hero">
+        <div class="selector">
+            <div id="selectField">
+                <p id="selectText">Select an option</p>
+                <span id="arrow">v</span>
+            </div>
+            
+            <ul id="list" class="hide">
+                <li class="options">
+                    <img src="" alt="">
+                    <p>Facebook</p>
+                </li>
+                <li class="options">
+                    <img src="" alt="">
+                    <p>Whatsapp</p>
+                </li>
+                <li class="options">
+                    <img src="" alt="">
+                    <p>Tiktok</p>
+                </li>
+                <li class="options">
+                    <img src="" alt="">
+                    <p>Pinterest</p>
+                </li>
+                <li class="options">
+                    <img src="" alt="">
+                    <p>Instagram</p>
+                </li>
+                <li class="options">
+                    <img src="" alt="">
+                    <p>LinkedIn</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        let selectField = document.getElementById("selectField");
+        let selectText = document.getElementById("selectText");
+        let options = document.getElementsByClassName("options");
+        let list = document.getElementById("list");
+        let arrowIcon = document.getElementById("arrow");
+
+
+        selectField.onclick = () => {
+
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        }
+
+        /*  here event.target refers to the element thet was clicked.By using a regular function(instead of arrow function 'this' keyword will refer to the element that was clicked and .textContent should give expected results)  */
+        for (let option of options){
+            option.onclick = () => {
+                selectText.innerHTML = event.target.textContent;
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+
+            }
+        }
+    </script>
+</body>
+</html>
